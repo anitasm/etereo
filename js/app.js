@@ -1,20 +1,23 @@
 /* ---------------------------
    ETHEREO / (Et). — app.js
-   - Menú móvil
+   - Menú móvil accesible
    - Carga perezosa de imágenes/videos/audio (data-src -> src)
    - Microanimaciones al hacer scroll
 -------------------------------- */
 
-// 1) Menú móvil
+// 1) Menú móvil accesible
 const toggle = document.querySelector('[data-menu-toggle]');
 const links = document.querySelector('[data-nav-links]');
 if (toggle && links){
   toggle.addEventListener('click', () => {
-    const open = links.style.display === 'flex';
-    links.style.display = open ? 'none' : 'flex';
-    links.style.flexDirection = 'column';
-    links.style.gap = '12px';
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!expanded));
+    links.classList.toggle('open', !expanded);
   });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    toggle.setAttribute('aria-expanded', 'false');
+    links.classList.remove('open');
+  }));
 }
 
 // 2) Lazy load de medios usando IntersectionObserver
@@ -29,20 +32,18 @@ if ('IntersectionObserver' in window){
         el.setAttribute('src', real);
         el.removeAttribute('data-src');
         el.removeAttribute('src-placeholder');
+        if (el.tagName === 'IMG') el.loading = 'lazy';
       }
-      // Para <source> dentro de <video> o <audio>
       el.querySelectorAll('source[data-src]').forEach(s => {
         s.src = s.getAttribute('data-src');
         s.removeAttribute('data-src');
       });
-      // Si es video con controls, evitamos autoplay por accesibilidad
       if (el.tagName === 'VIDEO') el.load();
       io.unobserve(el);
     });
   }, { rootMargin: '200px 0px' });
   lazyMedia.forEach(m => io.observe(m));
 }else{
-  // Fallback: cargar todo
   lazyMedia.forEach(el => {
     const real = el.getAttribute('data-src');
     if (real){
@@ -79,7 +80,6 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 // 5) Accesibilidad básica para usuarios que prefieren reducir movimiento
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-  // Desactivar animaciones
   document.querySelectorAll('*').forEach(el => {
     el.style.scrollBehavior = 'auto';
   });

@@ -6,30 +6,20 @@
 /* ===== 1) Variables de tema ===== */
 :root{
   /* Colores base */
-  --bg: #0a0a0b;
-  --bg-soft: #121215;
-  --text: #e7e7ea;
-  --muted: #b5b6bd;
-  --line: #2a2a30;
-  --card: #141418;
-  --card-2: #191a1f;
+  --bg: #08080b;
+  --bg-soft: #15151a;
+  --text: #f2f2f5;
+  --muted: #b3b3c1;
+  --line: #303036;
+  --card: #14141a;
+  --card-2: #1d1d24;
 
-  /* Acento holográfico (degradado) */
-  --holo: conic-gradient(from 180deg at 50% 50%,
-    #b9f 0deg,
-    #7bf 45deg,
-    #6df 90deg,
-    #6fc 135deg,
-    #bd8 180deg,
-    #f9b 225deg,
-    #f79 270deg,
-    #b9f 315deg,
-    #7bf 360deg
-  );
+ /* Acento holográfico (degradado) */
+  --holo: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
 
-  /* Tipografías — ajusta a las del CANVA si tienes el nombre exacto */
-  --font-display: "Space Grotesk", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
-  --font-body: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+   /* Tipografías — ajusta a las del CANVA si tienes el nombre exacto */
+  --font-display: "Orbitron", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
 
   /* Métricas */
   --radius: 18px;
@@ -55,6 +45,8 @@ body{
   line-height:1.6;
 }
 img,video{ max-width:100%; display:block; }
+img{width:100%;height:auto;}
+.card__media img,.media-grid img,.media-grid video{width:100%;height:100%;object-fit:cover;}
 a{ color:inherit; text-decoration:none; }
 button{ font:inherit; cursor:pointer; }
 
@@ -212,12 +204,6 @@ h3{ font-size: clamp(18px, 2.2vw, 24px); color:#e9e9ee; }
   .grid--3{ grid-template-columns: repeat(2, minmax(0,1fr)); }
   .media-grid{ grid-template-columns: repeat(4, minmax(0,1fr)); }
 }
-@media (max-width: 760px){
-  .nav-links{ display:none; }
-  .menu-toggle{ display:inline-flex; }
-  .grid--2, .grid--3{ grid-template-columns: 1fr; }
-  .media-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
-}
 
 /* ===== 12) Clases “src” para insertar medios rápidamente ===== */
 /* Úsalas donde dejé los <img>, <video> y <audio> en el HTML:
@@ -227,4 +213,21 @@ h3{ font-size: clamp(18px, 2.2vw, 24px); color:#e9e9ee; }
 }
 [src-placeholder]::after{
   content:"Coloca tu media aquí"; color:#808299; font-size:.9rem;
+}
+
+@media (max-width: 760px){
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:68px; left:0; right:0;
+    background:var(--card);
+    flex-direction:column;
+    gap:12px;
+    padding:1rem clamp(16px,3vw,32px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-links.open{display:flex;}
+  .menu-toggle{ display:inline-flex; }
+  .grid--2, .grid--3{ grid-template-columns: 1fr; }
+  .media-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
 }

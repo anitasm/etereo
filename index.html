@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>La comunidad (Et)éreo</title>
   <meta name="description" content="Comunidad ETHEREO: historias, inspiración y estética espacial moderna." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -21,7 +24,7 @@
         <a href="#historia">Historia</a>
         <a href="#contacto">Contacto</a>
       </nav>
-      <button class="menu-toggle" data-menu-toggle aria-label="Abrir menú">☰</button>
+        <button class="menu-toggle" data-menu-toggle aria-label="Abrir menú" aria-expanded="false">☰</button>
     </div>
   </header>
 
@@ -42,7 +45,7 @@
       <div data-reveal>
         <div class="card">
           <div class="card__media" src-placeholder>
-            <img src="assets/reunion_cafe.png" alt="imagen_hero">
+            <img src="assets/reunion_cafe.png" alt="imagen_hero" loading="lazy">
           </div>
           <div class="card__body">
             <div class="card__meta">Momentos de la comunidad • Street &amp; Space Aesthetic</div>
@@ -59,25 +62,25 @@
 
       <div class="media-grid" style="margin-top:18px;">
         <!-- 1/5 IMG -->
-        <img class="media" src-placeholder data-src="assets/fiesta_de_espaldas.png" alt="Comunidad (Et)éreo 1" />
+        <img class="media" loading="lazy" src-placeholder data-src="assets/fiesta_de_espaldas.png" alt="Comunidad (Et)éreo 1" />
         <!-- 2/5 IMG -->
-        <img class="media" src-placeholder data-src="assets/calles_ny.png" alt="Comunidad (Et)éreo 2" />
+        <img class="media" loading="lazy" src-placeholder data-src="assets/calles_ny.png" alt="Comunidad (Et)éreo 2" />
         <!-- 3/5 IMG -->
-        <img class="media" src-placeholder data-src="assets/fiesta_ojodepez.png" alt="Comunidad (Et)éreo 3" />
+        <img class="media" loading="lazy" src-placeholder data-src="assets/fiesta_ojodepez.png" alt="Comunidad (Et)éreo 3" />
         <!-- 4/5 IMG -->
-        <img class="media" src-placeholder data-src="assets/comiendo_sushi.png" alt="Comunidad (Et)éreo 4" />
+        <img class="media" loading="lazy" src-placeholder data-src="assets/comiendo_sushi.png" alt="Comunidad (Et)éreo 4" />
         <!-- 5/5 IMG -->
-        <img class="media" src-placeholder data-src="assets/reunion_cafe.png" alt="Comunidad (Et)éreo 5" />
+        <img class="media" loading="lazy" src-placeholder data-src="assets/reunion_cafe.png" alt="Comunidad (Et)éreo 5" />
 
         <!-- VIDEO 1/1 -->
-        <video class="media media--video" controls preload="none" src-placeholder data-src="assets/video_heygen.mp4" aria-label="Video comunidad (Et)éreo">
+        <video class="media media--video" controls preload="none" src-placeholder data-src="assets/video_heygen.mp4" poster="assets/reunion_cafe.png" aria-label="Video comunidad (Et)éreo">
           <source data-src="assets/video_heygen.mp4" type="video/mp4" />
         </video>
 
         <!-- AUDIO 1/1 -->
-        <audio class="media media--audio" controls preload="none" src-placeholder>
+        <audio class="media media--audio" controls preload="none" src-placeholder aria-label="Canción oficial de la comunidad">
           <source data-src="assets/etereo_song.mpeg" type="audio/mpeg" />
-          <source data-src="assets/comunidad/audio.ogg" type="audio/ogg" />      
+          <source data-src="assets/comunidad/audio.ogg" type="audio/ogg" />    
         </audio>
       </div>
     </section>
@@ -94,7 +97,7 @@
   <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
-      © <span data-year></span> (Et)éreo — Estética espacial moderna.
+      © <span data-year></span> (Et)éreo — Ser atípico en un mundo etéreo
     </div>
   </footer>
 

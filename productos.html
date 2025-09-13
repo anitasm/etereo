@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Conoce nuestros productos — (Et)éreo</title>
   <meta name="description" content="Buzos oversize, boxyfit y urbanos con estética espacial moderna." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -21,7 +24,7 @@
         <a href="#galeria">Media</a>
         <a href="#faq">FAQ</a>
       </nav>
-      <button class="menu-toggle" data-menu-toggle aria-label="Abrir menú">☰</button>
+      <button class="menu-toggle" data-menu-toggle aria-label="Abrir menú" aria-expanded="false">☰</button>
     </div>
   </header>
 
@@ -41,9 +44,13 @@
       <div data-reveal>
         <div class="card">
           <div class="card__media" src-placeholder>
-            Portada de producto — coloca aquí una imagen de colección
+            <video src="assets/video_heygen.mp4"></video>
           </div>
           <div class="card__body">
+              <audio class="media media--audio" controls preload="none" src-placeholder>
+                <source data-src="assets/etereo_song.mpeg" type="audio/mpeg" />
+                <source data-src="assets/comunidad/audio.ogg" type="audio/ogg" />      
+              </audio>
             <div class="card__meta">Avatar, script y canción generados con herramientas IA</div>
             <h3>Video de presentación &amp; canción oficial</h3>
             <p class="card__meta">
@@ -62,7 +69,7 @@
         <article class="card" data-reveal>
           <div class="card__media" src-placeholder>
             <!-- Reemplaza con tu imagen -->
-            <img alt="Buzo Beige (et)." data-src="assets/productos/buzo-beige.jpg" src-placeholder />
+            <img loading="lazy" alt="Buzo Beige (et)." data-src="assets/buzo_arena.png" src-placeholder />
           </div>
           <div class="card__body">
             <h3>Buzo Beige “(et).”</h3>
@@ -75,7 +82,7 @@
         <!-- Card 2 -->
         <article class="card" data-reveal>
           <div class="card__media" src-placeholder>
-            <img alt="Buzo cuello alto morado-marrón" data-src="assets/productos/buzo-morado-marron.jpg" src-placeholder />
+            <img loading="lazy" alt="Buzo cuello alto morado-marrón" data-src="assets/buzo_lila_cuello.png" src-placeholder />
           </div>
           <div class="card__body">
             <h3>Cuello Alto Morado-Marrón</h3>
@@ -88,7 +95,7 @@
         <!-- Card 3 -->
         <article class="card" data-reveal>
           <div class="card__media" src-placeholder>
-            <img alt="Buzo lila claro" data-src="assets/productos/buzo-lila.jpg" src-placeholder />
+            <img loading="lazy" alt="Buzo lila claro" data-src="assets/buzo_lila.png" src-placeholder />
           </div>
           <div class="card__body">
             <h3>Lilac Drop</h3>
@@ -101,7 +108,7 @@
         <!-- Card 4 -->
         <article class="card" data-reveal>
           <div class="card__media" src-placeholder>
-            <img alt="Buzo high neck sin capucha" data-src="assets/productos/buzo-highneck.jpg" src-placeholder />
+            <img loading="lazy" alt="Buzo high neck sin capucha" data-src="assets/buzo_verde_cuello.png" src-placeholder />
           </div>
           <div class="card__body">
             <h3>High Neck Distressed</h3>
@@ -114,7 +121,7 @@
         <!-- Card 5 -->
         <article class="card" data-reveal>
           <div class="card__media" src-placeholder>
-            <img alt="Buzo brazos cruzados" data-src="assets/productos/buzo-crossarms.jpg" src-placeholder />
+            <img loading="lazy" alt="Buzo brazos cruzados" data-src="assets/eto_brazoscruzados.png" src-placeholder />
           </div>
           <div class="card__body">
             <h3>Cross-Arms Edit</h3>
@@ -127,7 +134,7 @@
         <!-- Card 6 -->
         <article class="card" data-reveal>
           <div class="card__media" src-placeholder>
-            <img alt="Buzo edición urbana" data-src="assets/productos/buzo-urbano.jpg" src-placeholder />
+            <img loading="lazy" alt="Buzo edición urbana" data-src="assets/buzo_gris_cuello.png" src-placeholder />
           </div>
           <div class="card__body">
             <h3>Urban Core</h3>
@@ -137,40 +144,6 @@
           </div>
         </article>
       </div>
-    </section>
-
-    <!-- Media de productos: 5 IMG + 1 VIDEO + 1 AUDIO -->
-    <section class="container" id="galeria" style="margin-top:18px;">
-      <h2 class="center" data-reveal>Media del catálogo</h2>
-      <div class="media-grid" style="margin-top:18px;">
-        <!-- 1/5 IMG -->
-        <img class="media" src-placeholder data-src="assets/productos/galeria-1.jpg" alt="Producto 1" />
-        <!-- 2/5 IMG -->
-        <img class="media" src-placeholder data-src="assets/productos/galeria-2.jpg" alt="Producto 2" />
-        <!-- 3/5 IMG -->
-        <img class="media" src-placeholder data-src="assets/productos/galeria-3.jpg" alt="Producto 3" />
-        <!-- 4/5 IMG -->
-        <img class="media" src-placeholder data-src="assets/productos/galeria-4.jpg" alt="Producto 4" />
-        <!-- 5/5 IMG -->
-        <img class="media" src-placeholder data-src="assets/productos/galeria-5.jpg" alt="Producto 5" />
-
-        <!-- VIDEO 1/1 (HeyGen) -->
-        <video class="media media--video" controls preload="none" src-placeholder data-src="assets/productos/video-presentacion.mp4" aria-label="Video presentación (HeyGen)">
-          <source data-src="assets/productos/video-presentacion.webm" type="video/webm" />
-          <source data-src="assets/productos/video-presentacion.mp4" type="video/mp4" />
-          Tu navegador no soporta video HTML5.
-        </video>
-
-        <!-- AUDIO 1/1 (SUNO) -->
-        <audio class="media media--audio" controls preload="none" src-placeholder>
-          <source data-src="assets/productos/cancion-suno.mp3" type="audio/mpeg" />
-          <source data-src="assets/productos/cancion-suno.ogg" type="audio/ogg" />
-          Tu navegador no soporta audio HTML5.
-        </audio>
-      </div>
-      <p class="center" style="margin-top:10px;" data-reveal>
-        * Avatar hecho con ChatGPT • Script generado con ChatGPT • Video: HeyGen • Audio: SUNO.
-      </p>
     </section>
 
     <!-- FAQ breve -->
@@ -204,7 +177,7 @@
   <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
-      © <span data-year></span> (Et)éreo — Estética espacial moderna.
+      © <span data-year></span> (Et)éreo — Ser atípico en un mundo etéreo
     </div>
   </footer>
 
