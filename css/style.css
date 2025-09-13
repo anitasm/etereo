@@ -160,15 +160,19 @@ h3{ font-size: clamp(18px, 2.2vw, 24px); color:#e9e9ee; }
 
 /* ===== 7) Galerías (5 imágenes + 1 video + 1 audio placeholders) ===== */
 .media-grid{
-  display:grid; gap:16px;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  display:grid; gap:16px; margin-top:18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .media-grid .media{
   background:var(--card-2); border:1px solid var(--line); border-radius:var(--radius-sm);
-  overflow:hidden; min-height:120px; display:grid; place-items:center; color:var(--muted);
+  overflow:hidden; min-height:200px; display:grid; place-items:center; color:var(--muted);
 }
-.media-grid .media--video{ grid-column: span 3; aspect-ratio: 16/9; }
-.media-grid .media--audio{ grid-column: span 3; padding:12px; }
+.media-grid .media--video{
+  grid-column: 1 / -1; aspect-ratio: 16/9;
+}
+.media-grid .media--audio{
+  grid-column: 1 / -1; padding:12px;
+}
 
 /* ===== 8) Banner final “Date el lujo de ser distinto” ===== */
 .banner{
@@ -202,7 +206,7 @@ h3{ font-size: clamp(18px, 2.2vw, 24px); color:#e9e9ee; }
 @media (max-width: 1024px){
   .hero{ grid-template-columns: 1fr; }
   .grid--3{ grid-template-columns: repeat(2, minmax(0,1fr)); }
-  .media-grid{ grid-template-columns: repeat(4, minmax(0,1fr)); }
+  .media-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
 }
 
 /* ===== 12) Clases “src” para insertar medios rápidamente ===== */
@@ -210,9 +214,6 @@ h3{ font-size: clamp(18px, 2.2vw, 24px); color:#e9e9ee; }
    Reemplaza el 'data-src' por tu ruta y el JS hará el swap (lazy). */
 [src-placeholder]{
   position:relative; background: repeating-linear-gradient(45deg, #15161b 0 12px, #0f0f13 12px 24px);
-}
-[src-placeholder]::after{
-  content:"Coloca tu media aquí"; color:#808299; font-size:.9rem;
 }
 
 @media (max-width: 760px){
@@ -229,5 +230,5 @@ h3{ font-size: clamp(18px, 2.2vw, 24px); color:#e9e9ee; }
   .nav-links.open{display:flex;}
   .menu-toggle{ display:inline-flex; }
   .grid--2, .grid--3{ grid-template-columns: 1fr; }
-  .media-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .media-grid{ grid-template-columns: 1fr; }
 }
