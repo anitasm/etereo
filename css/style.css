@@ -1,0 +1,230 @@
+/* ---------------------------
+   ETHEREO / (Et). — style.css
+   Aesthetic: espacial moderna, negro/grises + acentos holográficos
+-------------------------------- */
+
+/* ===== 1) Variables de tema ===== */
+:root{
+  /* Colores base */
+  --bg: #0a0a0b;
+  --bg-soft: #121215;
+  --text: #e7e7ea;
+  --muted: #b5b6bd;
+  --line: #2a2a30;
+  --card: #141418;
+  --card-2: #191a1f;
+
+  /* Acento holográfico (degradado) */
+  --holo: conic-gradient(from 180deg at 50% 50%,
+    #b9f 0deg,
+    #7bf 45deg,
+    #6df 90deg,
+    #6fc 135deg,
+    #bd8 180deg,
+    #f9b 225deg,
+    #f79 270deg,
+    #b9f 315deg,
+    #7bf 360deg
+  );
+
+  /* Tipografías — ajusta a las del CANVA si tienes el nombre exacto */
+  --font-display: "Space Grotesk", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+
+  /* Métricas */
+  --radius: 18px;
+  --radius-sm: 12px;
+  --shadow: 0 10px 30px rgba(0,0,0,.45);
+  --shadow-soft: 0 6px 20px rgba(0,0,0,.35);
+  --container: 1200px;
+}
+
+/* ===== 2) Reset/opinions ===== */
+*{ box-sizing: border-box; }
+html,body{ height:100%; }
+html{
+  scroll-behavior:smooth;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+body{
+  margin:0;
+  background: radial-gradient(1200px 900px at 80% -10%, #15161b 0%, transparent 60%) , var(--bg);
+  color:var(--text);
+  font-family:var(--font-body);
+  line-height:1.6;
+}
+img,video{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+button{ font:inherit; cursor:pointer; }
+
+/* ===== 3) Utilidades ===== */
+.container{ width:100%; max-width:var(--container); margin-inline:auto; padding-inline:clamp(16px, 3vw, 32px); }
+.stack > * + *{ margin-top: clamp(8px, 1vw, 14px); }
+.grid{
+  display:grid;
+  gap:clamp(16px, 2.5vw, 28px);
+}
+.grid--2{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+.grid--3{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+.center{ text-align:center; }
+.tag{
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:.35rem .75rem; border:1px solid var(--line);
+  border-radius:999px; color:var(--muted); background:rgba(255,255,255,.02);
+}
+.holo-text{
+  background: var(--holo);
+  background-clip:text;
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+/* ===== 4) Cabecera / navegación ===== */
+.site-header{
+  position:sticky; top:0; z-index:50;
+  backdrop-filter:saturate(140%) blur(8px);
+  background:rgba(10,10,11,.55);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  min-height:68px;
+}
+.logo{
+  font-family:var(--font-display);
+  font-weight:700;
+  letter-spacing:.5px;
+  font-size: clamp(22px, 3.2vw, 32px);
+}
+.logo em{ font-style:normal; }
+.logo .dot{
+  display:inline-block; width:10px; height:10px; margin-left:.12rem; border-radius:50%;
+  background: var(--holo);
+  box-shadow:0 0 16px rgba(180,150,255,.35);
+}
+.nav-links{
+  display:flex; gap: clamp(16px, 2.2vw, 28px);
+}
+.nav-links a{
+  color:var(--muted);
+  padding:.6rem .2rem;
+  border-bottom:2px solid transparent;
+  transition: color .2s ease, border-color .2s ease;
+}
+.nav-links a:is(:hover,:focus){ color:var(--text); border-color:#8bd; }
+
+.menu-toggle{
+  display:none; border:1px solid var(--line); background:var(--card-2);
+  padding:.55rem .8rem; border-radius:10px; color:var(--text);
+}
+
+/* ===== 5) Hero / bloques comunes ===== */
+.hero{
+  padding: clamp(40px, 8vw, 96px) 0;
+  display:grid; gap:24px;
+  grid-template-columns: 1.2fr .8fr;
+  align-items:center;
+}
+.kicker{ text-transform:uppercase; letter-spacing:.14em; color:var(--muted); font-size:.82rem; }
+h1,h2,h3{ font-family:var(--font-display); line-height:1.15; margin:0; }
+h1{ font-size: clamp(34px, 5vw, 56px); }
+h2{ font-size: clamp(24px, 3vw, 36px); }
+h3{ font-size: clamp(18px, 2.2vw, 24px); color:#e9e9ee; }
+.lead{ font-size: clamp(16px, 1.8vw, 18px); color:#d4d4da; }
+
+.cta{
+  display:inline-flex; align-items:center; gap:.75rem;
+  padding:.9rem 1.2rem; border-radius:999px;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0));
+  color:var(--text); box-shadow:var(--shadow-soft);
+}
+.cta::after{
+  content:"";
+  width:18px;height:18px;border-radius:50%;
+  background:var(--holo);
+  box-shadow:0 0 20px rgba(140,190,255,.45);
+}
+
+/* ===== 6) Tarjetas de producto / media ===== */
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)),
+             var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  overflow:hidden; box-shadow:var(--shadow);
+}
+.card__media{
+  aspect-ratio: 4/3;
+  background: radial-gradient(800px 500px at 80% -10%, rgba(120,130,255,.2), transparent 60%),
+              #0f0f13;
+  display:grid; place-items:center; color:#9aa0ff;
+  font-size:14px; letter-spacing:.08em;
+}
+.card__body{ padding:18px clamp(16px, 2.2vw, 22px); }
+.card__meta{ color:var(--muted); font-size:.92rem; }
+.price{ font-weight:700; }
+
+/* ===== 7) Galerías (5 imágenes + 1 video + 1 audio placeholders) ===== */
+.media-grid{
+  display:grid; gap:16px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+.media-grid .media{
+  background:var(--card-2); border:1px solid var(--line); border-radius:var(--radius-sm);
+  overflow:hidden; min-height:120px; display:grid; place-items:center; color:var(--muted);
+}
+.media-grid .media--video{ grid-column: span 3; aspect-ratio: 16/9; }
+.media-grid .media--audio{ grid-column: span 3; padding:12px; }
+
+/* ===== 8) Banner final “Date el lujo de ser distinto” ===== */
+.banner{
+  margin: clamp(32px, 6vw, 72px) 0;
+  border-radius: calc(var(--radius) + 6px);
+  border:1px solid var(--line);
+  background:
+    radial-gradient(600px 200px at 20% -10%, rgba(140,190,255,.25), transparent 60%),
+    radial-gradient(600px 200px at 80% 110%, rgba(255,170,220,.25), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0)),
+    var(--card);
+  text-align:center;
+  padding: clamp(28px, 6vw, 56px);
+}
+.banner h2{
+  font-size: clamp(26px, 4.8vw, 54px);
+}
+.banner .sub{ color:var(--muted); }
+
+/* ===== 9) Footer ===== */
+.site-footer{
+  border-top:1px solid var(--line);
+  padding:24px 0; color:var(--muted);
+}
+
+/* ===== 10) Estados e interacciones ===== */
+:focus-visible{ outline:2px solid #8bd; outline-offset:2px; }
+.card:is(:hover,:focus-within){ transform: translateY(-2px); transition: transform .18s ease; }
+
+/* ===== 11) Responsividad ===== */
+@media (max-width: 1024px){
+  .hero{ grid-template-columns: 1fr; }
+  .grid--3{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .media-grid{ grid-template-columns: repeat(4, minmax(0,1fr)); }
+}
+@media (max-width: 760px){
+  .nav-links{ display:none; }
+  .menu-toggle{ display:inline-flex; }
+  .grid--2, .grid--3{ grid-template-columns: 1fr; }
+  .media-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+
+/* ===== 12) Clases “src” para insertar medios rápidamente ===== */
+/* Úsalas donde dejé los <img>, <video> y <audio> en el HTML:
+   Reemplaza el 'data-src' por tu ruta y el JS hará el swap (lazy). */
+[src-placeholder]{
+  position:relative; background: repeating-linear-gradient(45deg, #15161b 0 12px, #0f0f13 12px 24px);
+}
+[src-placeholder]::after{
+  content:"Coloca tu media aquí"; color:#808299; font-size:.9rem;
+}
