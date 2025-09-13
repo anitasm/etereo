@@ -167,11 +167,20 @@ h3{ font-size: clamp(18px, 2.2vw, 24px); color:#e9e9ee; }
   background:var(--card-2); border:1px solid var(--line); border-radius:var(--radius-sm);
   overflow:hidden; min-height:200px; display:grid; place-items:center; color:var(--muted);
 }
+.media--audio{
+  width:100%;
+  background:var(--card-2);
+  border:1px solid var(--line);
+  border-radius:var(--radius-sm);
+  color-scheme: dark;
+  accent-color: #a18cd1;
+}
 .media-grid .media--video{
   grid-column: 1 / -1; aspect-ratio: 16/9;
 }
 .media-grid .media--audio{
   grid-column: 1 / -1; padding:12px;
+  grid-column: 1 / -1;
 }
 
 /* ===== 8) Banner final “Date el lujo de ser distinto” ===== */

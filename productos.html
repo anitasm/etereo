@@ -43,13 +43,12 @@
       <div data-reveal>
         <div class="card">
           <div class="card__media" src-placeholder>
-            <video src="assets/video_heygen.mp4"></video>
+           <video controls preload="none" src-placeholder data-src="assets/video_heygen.mp4" aria-label="Video de presentación de la marca">
+              <source data-src="assets/video_heygen.mp4" type="video/mp4" />
+            </video>
           </div>
           <div class="card__body">
-              <audio class="media media--audio" controls preload="none" src-placeholder>
-                <source data-src="assets/atipicocancion.mp3" type="audio/mp3" />
-                <source data-src="assets/comunidad/audio.ogg" type="audio/ogg" />      
-              </audio>
+               <audio class="media media--audio" controls preload="none" data-src="assets/atipicocancion.mp3" src-placeholder aria-label="Canción oficial de la marca"></audio>
             <div class="card__meta">Avatar, script y canción generados con herramientas IA</div>
             <h3>Video de presentación &amp; canción oficial</h3>
             <p class="card__meta">
@@ -173,6 +172,7 @@
             <p>Sí, enviamos a todo el mundo. Los tiempos y costos varían según tu ubicación.</p>
           </div>
         </div>
+      </div>
     </section>
 
     <!-- Banner final -->

@@ -38,7 +38,7 @@ if ('IntersectionObserver' in window){
         s.src = s.getAttribute('data-src');
         s.removeAttribute('data-src');
       });
-      if (el.tagName === 'VIDEO') el.load();
+      if (el.tagName === 'VIDEO' || el.tagName === 'AUDIO') el.load();
       io.unobserve(el);
     });
   }, { rootMargin: '200px 0px' });
