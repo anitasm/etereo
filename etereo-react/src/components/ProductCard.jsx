@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-function ProductCard({ product }) {
+export function ProductCard({ product }) {
   return (
     <article className="product-card">
       <Link to={`/producto/${product.id}`}>
