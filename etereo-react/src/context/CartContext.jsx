@@ -1,12 +1,12 @@
-import { createContext, useContext, useMemo, useState } from 'react'
+import { createContext, useCallback, useContext, useMemo, useState } from 'react'
 
 const CartContext = createContext()
 
 export function CartProvider({ children }) {
   const [items, setItems] = useState([])
 
-  const addItem = (product, quantity = 1) => {
-    const safeQuantity = Math.max(1, Math.min(quantity, 10))
+  const addItem = useCallback((product, quantity = 1) => {
+    const safeQuantity = Math.max(1, Math.min(Number(quantity) || 0, 10))
 
     setItems((prev) => {
       const existing = prev.find((item) => item.id === product.id)
@@ -24,10 +24,10 @@ export function CartProvider({ children }) {
 
       return [...prev, { ...product, quantity: safeQuantity }]
     })
-  }
+  }, [])
 
-  const updateQuantity = (productId, quantity) => {
-    const nextQuantity = Math.max(0, Math.min(quantity, 10))
+  const updateQuantity = useCallback((productId, quantity) => {
+    const nextQuantity = Math.max(0, Math.min(Number(quantity) || 0, 10))
 
     setItems((prev) =>
       prev
@@ -36,15 +36,15 @@ export function CartProvider({ children }) {
         )
         .filter((item) => item.quantity > 0),
     )
-  }
+  }, [])
 
-  const removeItem = (productId) => {
+  const removeItem = useCallback((productId) => {
     setItems((prev) => prev.filter((item) => item.id !== productId))
-  }
+  }, [])
 
-  const clearCart = () => {
+  const clearCart = useCallback(() => {
     setItems([])
-  }
+  }, [])
 
   const totalItems = useMemo(
     () => items.reduce((count, item) => count + item.quantity, 0),
