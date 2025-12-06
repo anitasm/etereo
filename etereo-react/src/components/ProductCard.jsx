@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-export function ProductCard({ product }) {
+function ProductCard({ product }) {
   return (
     <article className="product-card">
       <Link to={`/producto/${product.id}`}>
@@ -17,3 +17,5 @@ export function ProductCard({ product }) {
     </article>
   )
 }
+
+export default ProductCard
